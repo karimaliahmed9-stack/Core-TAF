@@ -1,9 +1,14 @@
 package Core.DriverManager;
 
+import Core.Actions.Alerts;
+import Core.Actions.BrowsersActions;
+import Core.Actions.ElementActions;
 import Core.DataReaderManager.PropertyReader;
 import Core.LogManager.LogManager;
+import Core.WaitManager.WaitManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ThreadGuard;
+import org.testng.asserts.SoftAssert;
 
 public class GUIDriver {
     //هقرا اسم البراوزر من system property (property Reader.getProperty)
@@ -32,5 +37,30 @@ public class GUIDriver {
     public void quitDriver() {
 
         ThreadLocaldriver.get().quit();
+    }
+
+
+    public ElementActions elementActions() {
+        return new ElementActions(getDriver());
+    }
+
+    public BrowsersActions browsersActions() {
+        return new BrowsersActions(getDriver());
+    }
+
+    public Alerts alerts() {
+        return new Alerts(getDriver());
+    }
+
+    public HardAssert hardAssert() {
+        return new HardAssert(getDriver());
+    }
+
+    public SoftAssert softAssert() {
+        return new SoftAssert(getDriver());
+    }
+
+    public WaitManager waitManager() {
+        return new WaitManager(getDriver());
     }
 }
