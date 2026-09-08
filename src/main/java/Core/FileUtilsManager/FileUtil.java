@@ -81,4 +81,30 @@ public class FileUtil {
             LogManager.Error("Error rename file :" + e.getMessage());
         }
     }
+
+    //Copy Directories
+    public static void copyDirectory(String source, String destination) {
+
+        try {
+
+            File sourceDir = new File(source);
+            File destinationDir = new File(destination);
+
+            if (!sourceDir.exists()) {
+
+                LogManager.Info("Source directory does not exist: " + sourceDir.getAbsolutePath());
+
+                return;
+            }
+
+            FileUtils.copyDirectory(sourceDir, destinationDir);
+
+            LogManager.Info("Directory copied successfully from: " + sourceDir.getAbsolutePath() + " to: "
+                    + destinationDir.getAbsolutePath());
+
+        } catch (Exception e) {
+
+            LogManager.Error("Failed to copy directory: " + e.getMessage());
+        }
+    }
 }
