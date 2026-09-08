@@ -3,12 +3,13 @@ package Core.DriverManager;
 import Core.Actions.Alerts;
 import Core.Actions.BrowsersActions;
 import Core.Actions.ElementActions;
+import Core.Assertions.HardAssert;
+import Core.Assertions.SoftAssert;
 import Core.DataReaderManager.PropertyReader;
 import Core.LogManager.LogManager;
 import Core.WaitManager.WaitManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ThreadGuard;
-import org.testng.asserts.SoftAssert;
 
 public class GUIDriver {
     //هقرا اسم البراوزر من system property (property Reader.getProperty)
@@ -16,7 +17,7 @@ public class GUIDriver {
     private ThreadLocal<WebDriver> ThreadLocaldriver = new ThreadLocal<>();
 
     public GUIDriver() {
-        LogManager.Info("Browser Type is :"  + Browser);
+        LogManager.Info("Browser Type is :" + Browser);
         //هنا من كلاس الاينم هختار اي بروزر وهحولو ل uppercase
         //كدا شغلنا المصنع
         Browsers browserType = Browsers.valueOf(Browser.toUpperCase());
