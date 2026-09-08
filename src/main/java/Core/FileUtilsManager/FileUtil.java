@@ -6,6 +6,8 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 
+import static org.apache.commons.io.FileUtils.copyFile;
+
 public class FileUtil {
     private static final String UserDir = PropertyReader.getProperty("user.dir") + File.separator;
 
@@ -58,6 +60,25 @@ public class FileUtil {
             }
         } catch (Exception e) {
             LogManager.Error("Failed to create Directory:" + e.getMessage());
+        }
+    }
+
+    //Renaming
+    public static void RenamingFile(String oldname, String newName) {
+
+        try {
+            var targetfile = new File(oldname);
+            String targetFilePath = targetfile.getParentFile().getAbsolutePath();
+            File newfile = new File(targetFilePath + File.separator + newName);
+            if (!targetfile.getPath().equals(newfile.getPath())) {
+                copyFile(targetfile, newfile);
+                FileUtils.deleteQuietly(targetfile);
+                LogManager.Info(("Target File Path:\"" + oldname + "\", File was renamed to  \"" + newName + "\"."));
+            } else {
+                LogManager.Info(("Target File Path:\"" + oldname + "\", already has the desired name \"" + newName + "\"."));
+            }
+        } catch (Exception e) {
+            LogManager.Error("Error rename file :" + e.getMessage());
         }
     }
 }
