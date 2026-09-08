@@ -1,5 +1,7 @@
 package Core.DriverManager;
 
+import Core.DataReaderManager.PropertyReader;
+import Core.LogManager.LogManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ThreadGuard;
 
@@ -9,6 +11,7 @@ public class GUIDriver {
     private ThreadLocal<WebDriver> ThreadLocaldriver = new ThreadLocal<>();
 
     public GUIDriver() {
+        LogManager.Info("Browser Type is :"  + Browser);
         //هنا من كلاس الاينم هختار اي بروزر وهحولو ل uppercase
         //كدا شغلنا المصنع
         Browsers browserType = Browsers.valueOf(Browser.toUpperCase());
