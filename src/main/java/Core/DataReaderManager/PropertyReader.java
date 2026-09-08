@@ -8,18 +8,23 @@ import java.util.Collection;
 import java.util.Properties;
 
 public class PropertyReader {
+    //Configuration Loading
     public static Properties loadproperties() {
         try {
             Properties properties = new Properties();
             Collection<File> propertiesFile;
+            //ابحث عن الملفات الي الامتداد بتععها .properties
             propertiesFile = FileUtils.listFiles(new File("src/main/resources/"), new String[]{"properties"}, true);
             propertiesFile.forEach(file -> {
                 try {
+                    //فتح وقراءة الملف
                     properties.load(FileUtils.openInputStream(file));
                 } catch (Exception e) {
                     LogManager.Error("Error loading properties from file: ", file.getName(), e.getMessage());
                 }
+                //خُد كل الـ System Properties وحطها داخل الـ properties object.
                 properties.putAll(System.getProperties());
+                //خُد كل الـ properties اللي قرأتها من الملفات، وحطها داخل System.getProperties().
                 System.getProperties().putAll(properties);
             });
             return properties;
@@ -28,6 +33,8 @@ public class PropertyReader {
         }
         return null;
     }
+
+    //Configuration Access
     public static String getProperty(String key) {
         try {
             return System.getProperty(key);
