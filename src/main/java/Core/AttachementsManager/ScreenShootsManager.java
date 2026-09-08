@@ -11,7 +11,7 @@ import java.io.File;
 
 public class ScreenShootsManager {
 
-    public static final String screenshoot_path = "test-output/ScreenShoot/";
+    public static final String screenshoot_path = "Test-Output/ScreenShoot/";
 
 
     //Take full page screen shoot

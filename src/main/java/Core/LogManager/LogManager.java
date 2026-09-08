@@ -3,7 +3,7 @@ package Core.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class LogManager {
-    public static final String LOG_PATH = "test-output/logs/";
+    public static final String LOG_PATH = "Test-Output/Logs/";
 
     private static Logger Logger()
     {
