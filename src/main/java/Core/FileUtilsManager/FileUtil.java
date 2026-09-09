@@ -14,6 +14,7 @@ public class FileUtil {
     public FileUtil() {
         super();
     }
+
     //Cleaning Directory
     public static void cleaningDirectory(File directory) {
 
@@ -64,18 +65,18 @@ public class FileUtil {
     }
 
     //Renaming
-    public static void RenamingFile(String oldname, String newName) {
+    public static void RenamingFile(String oldName, String newName) {
 
         try {
-            var targetfile = new File(oldname);
+            var targetfile = new File(oldName);
             String targetFilePath = targetfile.getParentFile().getAbsolutePath();
             File newfile = new File(targetFilePath + File.separator + newName);
             if (!targetfile.getPath().equals(newfile.getPath())) {
                 copyFile(targetfile, newfile);
                 FileUtils.deleteQuietly(targetfile);
-                LogManager.Info(("Target File Path:\"" + oldname + "\", File was renamed to  \"" + newName + "\"."));
+                LogManager.Info(("Target File Path:\"" + oldName + "\", File was renamed to  \"" + newName + "\"."));
             } else {
-                LogManager.Info(("Target File Path:\"" + oldname + "\", already has the desired name \"" + newName + "\"."));
+                LogManager.Info(("Target File Path:\"" + oldName + "\", already has the desired name \"" + newName + "\"."));
             }
         } catch (Exception e) {
             LogManager.Error("Error rename file :" + e.getMessage());
