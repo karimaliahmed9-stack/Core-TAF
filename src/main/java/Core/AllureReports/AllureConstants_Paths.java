@@ -4,17 +4,19 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static TAF.Utils.DataReaderManager.PropertyReader.getProperty;
+import static Core.DataReaderManager.PropertyReader.getProperty;
 
-public class AllureConstant {
+public class AllureConstants_Paths {
+    //Path > static > final عشان محدش يقدر يوصلها ولا يتعامل معاها
+
 
     public static final Path USER_DIR = Paths.get(getProperty("user.dir"), File.separator);
     public static final Path USER_Home = Paths.get(getProperty("user.home"), File.separator);
 
 
-    public static final Path RESULTS_FOLDER = Paths.get(String.valueOf(USER_DIR), "test-output", "Allure_Result", File.separator);
-    public static final Path REPORT_PATH = Paths.get(String.valueOf(USER_DIR), "test-output", "Report", File.separator);
-    public static final Path FULL_REPORT_PATH = Paths.get(String.valueOf(USER_DIR), "test-output", "Full_Report", File.separator);
+    public static final Path RESULTS_FOLDER = Paths.get(String.valueOf(USER_DIR), "Test-Output", "Allure_Result", File.separator);
+    public static final Path REPORT_PATH = Paths.get(String.valueOf(USER_DIR), "Test-Output", "Report", File.separator);
+    public static final Path FULL_REPORT_PATH = Paths.get(String.valueOf(USER_DIR), "Test-Output", "Full_Report", File.separator);
 
 
     public static final Path HISTORY_FOLDER = Paths.get(FULL_REPORT_PATH.toString(), "history", File.separator);
@@ -22,7 +24,7 @@ public class AllureConstant {
 
 
     public static final String INDEX_HTML = "index.html";
-    public static final String REPORT_PREFIX = "AllureReportKarim_";
+    public static final String REPORT_PREFIX = "AllureReport_";
     public static final String REPORT_EXTENSION = ".html";
 
 

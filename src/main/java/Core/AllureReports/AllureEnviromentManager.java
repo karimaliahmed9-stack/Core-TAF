@@ -1,7 +1,7 @@
 package Core.AllureReports;
 
-import TAF.Utils.DataReaderManager.PropertyReader;
-import TAF.Utils.LogManager.LogManager;
+import Core.DataReaderManager.PropertyReader;
+import Core.LogManager.LogManager;
 import com.google.common.collect.ImmutableMap;
 
 import java.io.File;
@@ -15,10 +15,9 @@ public class AllureEnviromentManager {
                         .put("OS", PropertyReader.getProperty("os.name"))
                         .put("java Version", PropertyReader.getProperty("java.runtime.version"))
                         .put("Browser", PropertyReader.getProperty("browserType"))
-                        .put("Execution Type", PropertyReader.getProperty("ExcutionType"))
+                        .put("Execution Type", PropertyReader.getProperty("ExecutionType"))
                         .put("URL", PropertyReader.getProperty("BaseUrl"))
-                        .build(), (AllureConstant.RESULTS_FOLDER) + File.separator
-        );
+                        .build(), (AllureConstants_Paths.RESULTS_FOLDER) + File.separator);
         LogManager.Info("Allure environment variable set .");
         try {
             AllureBinaryManager.DownloadAndExtract();

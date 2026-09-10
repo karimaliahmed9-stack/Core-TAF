@@ -1,8 +1,8 @@
 package Core.AllureReports;
 
-import TAF.Utils.LogManager.LogManager;
-import TAF.Utils.OperatingSyatem.OSUtil;
-import TAF.Utils.Terminal.Terminalutils;
+import Core.LogManager.LogManager;
+import Core.OSManager.OSUtil;
+import Core.Terminal.TerminalUtils;
 import org.jsoup.Jsoup;
 
 import java.io.BufferedInputStream;
@@ -17,39 +17,36 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 public class AllureBinaryManager {
-
     //عملت برايفت كلاس بجيب اخر نسخه من allure واحفظو عندي اتوماتيك
     private static class lazyHolder {
         static final String VERSION = resolveVersion();// هنا بنخزن اخلر نسخه من  allure من جيت هب
 
+        //هنا هيروح يفتح ريبو جيت هاب بتاعت Allure ويجيب اخر نسخ
         private static String resolveVersion() {
             try {
                 String url = Jsoup.connect("https://github.com/allure-framework/allure2/releases/latest")
                         .followRedirects(true).execute().url().toString();
                 return url.split("/tag/")[1];
             } catch (Exception e) {
-                LogManager.Error("Unable to resolve allure version" + e.getMessage());
+                throw new IllegalStateException("Unable To Resolve Allure Version", e);
             }
 
-            return "";
         }
     }
 
+
     //download the file
-    private static Path Downloadzip(String version) {
+    private static Path DownloadZip(String version) {
         try {
-            String url = AllureConstant.ALLURE_ZIP_BASE_URL + version + "/allure-commandline-" + version + ".zip";
-            Path ZIPFILE = Paths.get(AllureConstant.EXTRACTION_DIR.toString(), "allure-" + version + ".zip");
+            //https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.41.0/allure-commandline-2.41.0.zip
+            String url = AllureConstants_Paths.ALLURE_ZIP_BASE_URL + version + "/allure-commandline-" + version + ".zip";
+            //C:\Users\MR\.m2\repository\allure
+            Path ZIPFILE = Paths.get(AllureConstants_Paths.EXTRACTION_DIR.toString(), "allure-" + version + ".zip");
             if (!Files.exists(ZIPFILE)) {
-                Files.createDirectories(AllureConstant.EXTRACTION_DIR);
-                try {
-                    BufferedInputStream in = new BufferedInputStream(new URI(url).toURL().openStream());
-                    OutputStream out = Files.newOutputStream(ZIPFILE);
-                    {
-                        in.transferTo(out);
-                    }
-
-
+                Files.createDirectories(AllureConstants_Paths.EXTRACTION_DIR);
+                try (BufferedInputStream in = new BufferedInputStream(new URI(url).toURL().openStream());
+                     OutputStream out = Files.newOutputStream(ZIPFILE)) {
+                    in.transferTo(out);
                 } catch (Exception e) {
                     LogManager.Error("Invalid url for allure download", e.getMessage());
                 }
@@ -64,12 +61,11 @@ public class AllureBinaryManager {
 
 
     //Extract the zip file
-    private static void Extractzip(Path zippath) {
+    private static void ExtractZip(Path zippath) {
         try (ZipInputStream zipInputStream = new ZipInputStream(Files.newInputStream(zippath))) {
             ZipEntry entry;
             while ((entry = zipInputStream.getNextEntry()) != null) {
-                Path filepath = Paths.get(AllureConstant.EXTRACTION_DIR.toString(), File.separator, entry.getName());
-                //Path filepath = AllureConstant.EXTRACTION_DIR.resolve(entry.getName());
+                Path filepath = Paths.get(AllureConstants_Paths.EXTRACTION_DIR.toString(), File.separator, entry.getName());
                 if (entry.isDirectory()) {
                     Files.createDirectories(filepath);
                 } else {
@@ -87,24 +83,26 @@ public class AllureBinaryManager {
     public static void DownloadAndExtract() {
         try {
             String version = lazyHolder.VERSION;
-            Path extractionDir = Paths.get(AllureConstant.EXTRACTION_DIR.toString(), "allure-" + version);
+            Path extractionDir = Paths.get(AllureConstants_Paths.EXTRACTION_DIR.toString(), "allure-" + version);
             //if allure exists before , do not download again
             if (Files.exists(extractionDir)) {
                 LogManager.Info("allure binaries already exists.");
                 return;
             }
             if (!OSUtil.getcurrentos().equals(OSUtil.OS.WINDOWS)) {
-                Terminalutils.ExcuteTerminalaCommand("chmod", "u+x", AllureConstant.USER_DIR.toString());
+                //Give execute permission to binary if not on windows
+                TerminalUtils.ExecuteTerminalCommand("chmod", "u+x", AllureConstants_Paths.USER_DIR.toString());
             }
 
-            Path zippath = Downloadzip(version);
-            Extractzip(zippath);
+            Path zippath = DownloadZip(version);
+            ExtractZip(zippath);
+            LogManager.Info("Allure binaries Downloaded and Extracted successfully. ");
 
-            LogManager.Info("Allure binaries downloaded successfully");
+
             if (!OSUtil.getcurrentos().equals(OSUtil.OS.WINDOWS)) {
-                Terminalutils.ExcuteTerminalaCommand("chmod", "u+x", getExcutable().toString());
+                TerminalUtils.ExecuteTerminalCommand("chmod", "u+x", getExcutable().toString());
             }
-            Files.deleteIfExists(Files.list(AllureConstant.EXTRACTION_DIR)
+            Files.deleteIfExists(Files.list(AllureConstants_Paths.EXTRACTION_DIR)
                     .filter(p -> p.toString().endsWith(".zip")).findFirst().orElse(zippath));
             //Files.deleteIfExists(zippath);
 
@@ -117,9 +115,12 @@ public class AllureBinaryManager {
 
     public static Path getExcutable() {
         String version = lazyHolder.VERSION;
-        Path binarypath = Paths.get(AllureConstant.EXTRACTION_DIR.toString(), "allure-" + version, "bin", "allure");
-        return OSUtil.getcurrentos() == OSUtil.OS.WINDOWS ?
-                binarypath.resolveSibling(binarypath.getFileName() + ".bat") : binarypath;
+        //C:\Users\MR\.m2\repository\allure\allure-2.44.0\bin
+        Path binarypath = Paths.get(AllureConstants_Paths.EXTRACTION_DIR.toString(),
+                "allure-" + version, "bin", "allure");
+        return OSUtil.getcurrentos() == OSUtil.OS.WINDOWS
+                ? binarypath.resolveSibling(binarypath.getFileName() + ".bat")
+                : binarypath;
     }
 }
 
