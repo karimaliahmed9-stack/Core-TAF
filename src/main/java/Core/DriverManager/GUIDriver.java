@@ -31,6 +31,9 @@ public class GUIDriver {
 
     }
 
+
+
+
     public WebDriver getDriver() {
         return ThreadLocaldriver.get();
     }
@@ -39,6 +42,9 @@ public class GUIDriver {
 
         ThreadLocaldriver.get().quit();
     }
+
+
+
 
 
     public ElementActions elementActions() {
