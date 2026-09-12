@@ -15,6 +15,9 @@
     </properties>
 
 
+    <build>
+        <directory>Test-Output/target</directory>
+    </build>
     <dependencies>
     <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
@@ -84,12 +87,16 @@
             <version>3.0.0</version>
             <scope>compile</scope>
         </dependency>
+
+
+
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
             <scope>compile</scope>
         </dependency>
+
 
 
         <dependency>
@@ -115,15 +122,15 @@
 
 
         <dependency>
-            <groupId>com.automation-remarks</groupId>
-            <artifactId>video-recorder-testng</artifactId>
-            <version>2.0</version>
+            <groupId>ws.schild</groupId>
+            <artifactId>jave-all-deps</artifactId>
+            <version>4.2.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>ws.schild</groupId>
-            <artifactId>jave-core</artifactId>
-            <version>4.2.0</version>
+            <groupId>com.automation-remarks</groupId>
+            <artifactId>video-recorder-testng</artifactId>
+            <version>2.0</version>
             <scope>compile</scope>
         </dependency>
 

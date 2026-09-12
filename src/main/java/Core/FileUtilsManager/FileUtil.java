@@ -68,8 +68,8 @@ public class FileUtil {
     public static void RenamingFile(String oldname, String newName) {
 
         try {
-            File oldfile = new File(UserDir + oldname);
-            File newfile = new File(UserDir + newName);
+            File oldfile = new File( oldname);
+            File newfile = new File(oldfile.getParent(),newName);
             if (oldfile.renameTo(newfile)) {
                 LogManager.Info(("File Renamed from: " + oldname + ", File was renamed to  " + newName + "."));
             } else {

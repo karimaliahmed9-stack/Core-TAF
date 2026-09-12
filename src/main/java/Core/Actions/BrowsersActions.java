@@ -25,8 +25,7 @@ public class BrowsersActions {
                 return false;
             }
         });
-        LogManager.Info("Navigating to: " + url);
-        driver.navigate().to(url);
+
     }
 
     //Get Url

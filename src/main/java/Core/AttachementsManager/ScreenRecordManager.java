@@ -50,15 +50,16 @@ public class ScreenRecordManager {
     public static void StopRecord(String testmethodName) {
         try {
             if (recorder.get() != null) {
-                String filevideoPath = String.valueOf(recorder.get().stopAndSave(testmethodName));
-                File filevideo = new File(filevideoPath);
-                LogManager.Info("Video saved at:" + filevideo.getAbsolutePath());
+                //Stop the recorder and get the video file
+                String FileVideoPath = String.valueOf(recorder.get().stopAndSave(testmethodName));
+                File FileVideo = new File(FileVideoPath);
+                LogManager.Info("Video saved at:" + FileVideo.getAbsolutePath());
                 //Convert file video at mp4
-                File mp4file = encodeRecording(filevideo);
+                File mp4file = encodeRecording(FileVideo);
                 LogManager.Info("Recorder stoping and converted to mp4 :" + mp4file.getName());
             }
         } catch (Exception e) {
-            LogManager.Error("Faild stop record ", e.getMessage());
+            LogManager.Error("Failed stop record ", e.getMessage());
         } finally {
             recorder.remove();
         }
@@ -78,20 +79,24 @@ public class ScreenRecordManager {
             video.setCodec("libx264");
 
             EncodingAttributes encodingAttributes = new EncodingAttributes();
-            encodingAttributes.setOutputFormat("mp4");
+            encodingAttributes.setOutputFormat("mp4"); //Output Format
+
+
             encodingAttributes.setAudioAttributes(audio);
             encodingAttributes.setVideoAttributes(video);
 
+            //Encoded the video
             Encoder encoder = new Encoder();
             encoder.encode(new MultimediaObject(surcefile), targetFile, encodingAttributes);
 
+            //Deleted the original .avi file after conversion
             if (targetFile.exists()) {
                 surcefile.delete();
-                LogManager.Info("Deleted file AVI :" + surcefile.getName());
+                LogManager.Info("Deleted Original File AVI : " + surcefile.getName());
             }
 
         } catch (EncoderException e) {
-            LogManager.Error("", e.getMessage());
+            LogManager.Error("Failed To Convert Video To Mp4 : ", e.getMessage());
         }
         return targetFile;
     }
