@@ -1,5 +1,7 @@
 package Core.AllureReports;
 
+import Core.AttachementsManager.ScreenRecordManager;
+import Core.DataReaderManager.PropertyReader;
 import Core.LogManager.LogManager;
 import io.qameta.allure.Allure;
 import org.apache.logging.log4j.core.LoggerContext;
@@ -24,19 +26,19 @@ public class AllureAttachmentManager {
         }
     }
 
-//    public static void AttachmentScreenRecord(String testmethodName) {
-//        if (PropertyReader.getProperty("RecordTests").equalsIgnoreCase("true")) {
-//            try {
-//                File recordDer = new File(ScreenRecordManager.RECORDINGS_PATHE + testmethodName);
-//                if (recordDer != null &&recordDer.getName().endsWith(".mp4")) {
-//                    Allure.addAttachment(testmethodName, "video/mp4", Files.newInputStream(recordDer.toPath()),
-//                            ".mp4");
-//                }
-//            } catch (Exception e) {
-//                LogManager.Error("Error Attaching screen record" + e.getMessage());
-//            }
-//        }
-//    }
+    public static void AttachmentScreenRecord(String testmethodName) {
+        if (PropertyReader.getProperty("RecordTests").equalsIgnoreCase("true")) {
+            try {
+                File recordDer = new File(ScreenRecordManager.RECORDINGS_PATHE + testmethodName);
+                if (recordDer != null &&recordDer.getName().endsWith(".mp4")) {
+                    Allure.addAttachment(testmethodName, "video/mp4", Files.newInputStream(recordDer.toPath()),
+                            ".mp4");
+                }
+            } catch (Exception e) {
+                LogManager.Error("Error Attaching screen record" + e.getMessage());
+            }
+        }
+    }
 
     public static void AttachmentLogs() {
         try {

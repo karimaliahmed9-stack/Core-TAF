@@ -25,7 +25,7 @@ public class ScreenShootsManager {
 
             // attachment the screenshot to allure if needed
 
-            //AllureAttachmentManager.AttachmentScreenshot(screenshootName, screenshootFile.getAbsolutePath());
+            AllureAttachmentManager.AttachmentScreenshot(screenshootName, screenshootFile.getAbsolutePath());
 
 
             LogManager.Info("Capture screenshot succeeded");
