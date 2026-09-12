@@ -44,7 +44,7 @@ public class AllureAttachmentManager {
         try {
 
             File logfile = new File(
-                    LogManager.LOG_PATH + File.separator + "Logs.log"
+                    LogManager.LOG_PATH + File.separator , "Logs.log"
             );
 
             if (logfile.exists()) {

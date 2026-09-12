@@ -17,9 +17,7 @@ import org.testng.*;
 import java.io.File;
 
 public class TestNGListeners implements IExecutionListener, IInvokedMethodListener, ITestListener {
-    public TestNGListeners() {
-        LogManager.Info("TestNGListeners Initialized : .....");
-    }
+
 
     public void onExecutionStart() {
         LogManager.Info("Test Execution Started");

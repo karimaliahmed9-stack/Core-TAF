@@ -58,7 +58,7 @@ public class AllureReportGenerator {
                 AllureConstants_Paths.REPORT_EXTENSION;
         FileUtil.RenamingFile(REPORT_PATH.resolve(AllureConstants_Paths.INDEX_HTML).toString(),
                 REPORT_PATH.resolve(newFileName).toString());
-        return newFileName;
+        return AllureConstants_Paths.INDEX_HTML;
     }
 
 
