@@ -1,0 +1,21 @@
+[DEBUG] - [12-31-2026 17:31:11] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\MR\AppData\Local\JetBrains\IdeaIC2024.3\temp-testng-customsuite.xml"
+[INFO] - [12-31-2026 17:31:11] [main] [Core.ListenersManager.TestNGListeners] - TestNGListeners Initialized : .....
+[INFO] - [12-31-2026 17:31:12] [main] [Core.ListenersManager.TestNGListeners] - Test Execution Started
+[INFO] - [12-31-2026 17:31:12] [main] [Core.FileUtilsManager.FileUtil] - Directory cleaned successfully: C:\Users\MR\Core-TAF\Test-Output\Report
+[INFO] - [12-31-2026 17:31:12] [main] [Core.FileUtilsManager.FileUtil] - Directory cleaned successfully: C:\Users\MR\Core-TAF\Test-Output\Full_Report
+[INFO] - [12-31-2026 17:31:12] [main] [Core.FileUtilsManager.FileUtil] - Directory cleaned successfully: C:\Users\MR\Core-TAF\Test-Output\ScreenShoots
+[INFO] - [12-31-2026 17:31:12] [main] [Core.FileUtilsManager.FileUtil] - Directory cleaned successfully: C:\Users\MR\Core-TAF\Test-Output\ScreenRecords
+[ERROR] - [12-31-2026 17:31:12] [main] [Core.FileUtilsManager.FileUtil] - Failed to clean directory: C:\Users\MR\Core-TAF\Test-Output\Logs1 exception(s): [org.apache.commons.io.IOIndexedException: IOException #0: Cannot delete file: Test-Output\Logs\Logs.log]
+[INFO] - [12-31-2026 17:31:12] [main] [Core.ListenersManager.TestNGListeners] - Cleaning directors: 
+[INFO] - [12-31-2026 17:31:12] [main] [Core.ListenersManager.TestNGListeners] - Creating directors: ...
+[INFO] - [12-31-2026 17:31:12] [main] [Core.ListenersManager.TestNGListeners] - Properties loaded
+[INFO] - [12-31-2026 17:31:12] [main] [Core.AllureReports.AllureEnviromentManager] - Allure environment variable set .
+[INFO] - [12-31-2026 17:31:13] [main] [Core.AllureReports.AllureBinaryManager] - allure binaries already exists.
+[INFO] - [12-31-2026 17:31:13] [main] [Core.ListenersManager.TestNGListeners] - Allure Environment Set
+[INFO] - [12-31-2026 17:31:13] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\MR\AppData\Local\JetBrains\IdeaIC2024.3\temp-testng-customsuite.xml
+
+[INFO] - [12-31-2026 17:31:14] [main] [Core.DriverManager.GUIDriver] - Browser Type is :Chrome
+[INFO] - [12-31-2026 17:31:19] [main] [Core.Actions.BrowsersActions] - Navigating to: https://www.vezeeta.com/
+[INFO] - [12-31-2026 17:31:19] [main] [Core.ListenersManager.TestNGListeners] - Starting Test Case : TestCore_TAFStarted
+[INFO] - [12-31-2026 17:31:19] [main] [Core.AttachementsManager.ScreenShootsManager] - Capture screenshot succeeded

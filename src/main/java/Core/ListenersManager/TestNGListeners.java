@@ -17,9 +17,7 @@ import org.testng.*;
 import java.io.File;
 
 public class TestNGListeners implements IExecutionListener, IInvokedMethodListener, ITestListener {
-    public TestNGListeners() {
-        LogManager.Info("TestNGListeners Initialized : .....");
-    }
+
 
     public void onExecutionStart() {
         LogManager.Info("Test Execution Started");
@@ -85,10 +83,9 @@ public class TestNGListeners implements IExecutionListener, IInvokedMethodListen
 
 
     public static void CleaningTestOutputDirectory() {
-        FileUtil.cleaningDirectory(AllureConstants_Paths.RESULTS_FOLDER.toFile());
+        //FileUtil.cleaningDirectory(AllureConstants_Paths.RESULTS_FOLDER.toFile());
         FileUtil.cleaningDirectory(AllureConstants_Paths.REPORT_PATH.toFile());
         FileUtil.cleaningDirectory(AllureConstants_Paths.FULL_REPORT_PATH.toFile());
-        FileUtil.cleaningDirectory(AllureConstants_Paths.RESULTS_HISTORY_FOLDER.toFile());
         FileUtil.cleaningDirectory(new File(ScreenShootsManager.screenshoot_path));
         FileUtil.cleaningDirectory(new File(ScreenRecordManager.RECORDINGS_PATHE));
         FileUtil.CleaningWithForce(new File(LogManager.LOG_PATH));

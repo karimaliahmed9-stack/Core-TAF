@@ -6,8 +6,6 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 
-import static org.apache.commons.io.FileUtils.copyFile;
-
 public class FileUtil {
     private static final String UserDir = PropertyReader.getProperty("user.dir") + File.separator;
 
@@ -20,22 +18,15 @@ public class FileUtil {
 
         try {
 
-            if (!directory.exists()) {
-                directory.mkdirs();
-
-                LogManager.Info("Directory created: " + directory.getAbsolutePath());
-
-                return;
-            }
-
             FileUtils.cleanDirectory(directory);
 
             LogManager.Info("Directory cleaned successfully: " + directory.getAbsolutePath());
-
         } catch (Exception e) {
 
             LogManager.Error("Failed to clean directory: " + directory.getAbsolutePath(), e.getMessage()
             );
+
+
         }
     }
 
@@ -68,13 +59,17 @@ public class FileUtil {
     public static void RenamingFile(String oldname, String newName) {
 
         try {
-            File oldfile = new File( oldname);
-            File newfile = new File(oldfile.getParent(),newName);
+            File oldfile = new File(UserDir , oldname);
+            File newfile = new File(UserDir , newName);
             if (oldfile.renameTo(newfile)) {
                 LogManager.Info(("File Renamed from: " + oldname + ", File was renamed to  " + newName + "."));
             } else {
                 LogManager.Info(("Failed To Rename File From" + oldname + ", already has the desired name " + newName + "."));
             }
+//            File oldfile = new File(oldname);
+//            File newfile = new File(newName);
+//
+//            FileUtils.moveFile(oldfile, newfile);
         } catch (Exception e) {
             LogManager.Error("Error rename file :" + e.getMessage());
         }

@@ -54,9 +54,12 @@ public class AllureReportGenerator {
 
     public static String renaming() {
         // AllureReport2026109_123456.html
-        String newFileName = AllureConstants_Paths.REPORT_PREFIX + GetCurrentTime() + AllureConstants_Paths.REPORT_EXTENSION;
-        FileUtil.RenamingFile(REPORT_PATH.resolve(AllureConstants_Paths.INDEX_HTML).toString(), newFileName);
-        return newFileName;
+        String newFileName = AllureConstants_Paths.REPORT_PREFIX + GetCurrentTime() +
+                AllureConstants_Paths.REPORT_EXTENSION;
+        FileUtil.RenamingFile(REPORT_PATH.resolve(AllureConstants_Paths.INDEX_HTML).toString(),
+                REPORT_PATH.resolve(newFileName).toString());
+        return AllureConstants_Paths.INDEX_HTML;
     }
+
 
 }
