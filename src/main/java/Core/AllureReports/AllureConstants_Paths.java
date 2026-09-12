@@ -14,7 +14,7 @@ public class AllureConstants_Paths {
     public static final Path USER_Home = Paths.get(getProperty("user.home"), File.separator);
 
 
-    public static final Path RESULTS_FOLDER = Paths.get(String.valueOf(USER_DIR), "Test-Output", "Allure_Result", File.separator);
+    public static final Path RESULTS_FOLDER = Paths.get(String.valueOf(USER_DIR), "Test-Output", "Allure_Results", File.separator);
     public static final Path REPORT_PATH = Paths.get(String.valueOf(USER_DIR), "Test-Output", "Report", File.separator);
     public static final Path FULL_REPORT_PATH = Paths.get(String.valueOf(USER_DIR), "Test-Output", "Full_Report", File.separator);
 

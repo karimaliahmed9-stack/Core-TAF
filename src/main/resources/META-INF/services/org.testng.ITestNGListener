@@ -1,1 +1,2 @@
 Core.ListenersManager.TestNGListeners
+io.qameta.allure.testng.AllureTestNg
