@@ -3,6 +3,7 @@ package Core.DriverManager;
 import Core.Actions.Alerts;
 import Core.Actions.BrowsersActions;
 import Core.Actions.ElementActions;
+import Core.Actions.FrameActions;
 import Core.Assertions.HardAssert;
 import Core.Assertions.SoftAssert;
 import Core.DataReaderManager.PropertyReader;
@@ -32,8 +33,6 @@ public class GUIDriver {
     }
 
 
-
-
     public WebDriver getDriver() {
         return ThreadLocaldriver.get();
     }
@@ -42,9 +41,6 @@ public class GUIDriver {
 
         ThreadLocaldriver.get().quit();
     }
-
-
-
 
 
     public ElementActions elementActions() {
@@ -65,6 +61,10 @@ public class GUIDriver {
 
     public SoftAssert softAssert() {
         return new SoftAssert(getDriver());
+    }
+
+    public FrameActions frameActions() {
+        return new FrameActions(getDriver());
     }
 
     public WaitManager waitManager() {
