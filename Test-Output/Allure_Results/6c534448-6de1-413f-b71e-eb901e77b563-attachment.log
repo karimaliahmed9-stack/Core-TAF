@@ -1,0 +1,20 @@
+[DEBUG] - [13-55-2026 08:55:20] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\MR\AppData\Local\JetBrains\IdeaIC2024.3\temp-testng-customsuite.xml"
+[INFO] - [13-55-2026 08:55:20] [main] [Core.ListenersManager.TestNGListeners] - Test Execution Started
+[INFO] - [13-55-2026 08:55:20] [main] [Core.FileUtilsManager.FileUtil] - Directory cleaned successfully: C:\Users\MR\Core-TAF\Test-Output\Report
+[INFO] - [13-55-2026 08:55:21] [main] [Core.FileUtilsManager.FileUtil] - Directory cleaned successfully: C:\Users\MR\Core-TAF\Test-Output\Full_Report
+[INFO] - [13-55-2026 08:55:21] [main] [Core.FileUtilsManager.FileUtil] - Directory cleaned successfully: C:\Users\MR\Core-TAF\Test-Output\ScreenShoots
+[INFO] - [13-55-2026 08:55:21] [main] [Core.FileUtilsManager.FileUtil] - Directory cleaned successfully: C:\Users\MR\Core-TAF\Test-Output\ScreenRecords
+[ERROR] - [13-55-2026 08:55:21] [main] [Core.FileUtilsManager.FileUtil] - Failed to clean directory :Cannot delete file: Test-Output\Logs
+[INFO] - [13-55-2026 08:55:21] [main] [Core.ListenersManager.TestNGListeners] - Cleaning directors: 
+[INFO] - [13-55-2026 08:55:21] [main] [Core.ListenersManager.TestNGListeners] - Creating directors: ...
+[INFO] - [13-55-2026 08:55:21] [main] [Core.ListenersManager.TestNGListeners] - Properties loaded
+[INFO] - [13-55-2026 08:55:21] [main] [Core.AllureReports.AllureEnviromentManager] - Allure environment variable set .
+[INFO] - [13-55-2026 08:55:22] [main] [Core.AllureReports.AllureBinaryManager] - allure binaries already exists.
+[INFO] - [13-55-2026 08:55:22] [main] [Core.ListenersManager.TestNGListeners] - Allure Environment Set
+[INFO] - [13-55-2026 08:55:22] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\MR\AppData\Local\JetBrains\IdeaIC2024.3\temp-testng-customsuite.xml
+
+[INFO] - [13-55-2026 08:55:23] [main] [Core.DriverManager.GUIDriver] - Browser Type is :Chrome
+[INFO] - [13-55-2026 08:55:26] [main] [Core.Actions.BrowsersActions] - Navigating to: https://www.vezeeta.com/
+[INFO] - [13-55-2026 08:55:27] [main] [Core.ListenersManager.TestNGListeners] - Starting Test Case : TestCore_TAFStarted
+[INFO] - [13-55-2026 08:55:27] [main] [Core.AttachementsManager.ScreenShootsManager] - Capture screenshot succeeded
