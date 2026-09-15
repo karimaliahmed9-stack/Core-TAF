@@ -18,7 +18,3 @@
 [INFO] - [14-29-2026 16:29:57] [main] [Core.Actions.BrowsersActions] - Navigating to: https://www.vezeeta.com/
 [INFO] - [14-29-2026 16:29:58] [main] [Core.ListenersManager.TestNGListeners] - Starting Test Case : TestCore_TAFStarted
 [INFO] - [14-29-2026 16:29:58] [main] [Core.AttachementsManager.ScreenShootsManager] - Capture screenshot succeeded
-[INFO] - [14-29-2026 16:29:58] [main] [Core.ListenersManager.TestNGListeners] - Test Case Passed: TestCore_TAFPassed
-[INFO] - [14-29-2026 16:29:59] [main] [Core.ListenersManager.TestNGListeners] - Starting Test Execution Finished: ... 
-[INFO] - [14-30-2026 16:30:05] [main] [Core.FileUtilsManager.FileUtil] - Failed To Rename File FromC:\Users\MR\Core-TAF\Test-Output\Report\index.html, already has the desired name C:\Users\MR\Core-TAF\Test-Output\Report\AllureReport_2026-09-14_16-30-05.html.
-[INFO] - [14-30-2026 16:30:06] [main] [Core.ListenersManager.TestNGListeners] - Test Execution Finished: ... 

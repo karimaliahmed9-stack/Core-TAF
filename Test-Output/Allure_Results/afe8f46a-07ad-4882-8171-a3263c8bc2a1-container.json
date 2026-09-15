@@ -1,0 +1,1 @@
+{"uuid":"afe8f46a-07ad-4882-8171-a3263c8bc2a1","name":"Tests.TestCore_TAFTC_001.Setup","children":["c3da7d86-2fec-4173-8dc2-91d0ffb5fd87"],"description":"","befores":[{"name":"Setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1789392593440,"stop":1789392597626}],"afters":[],"start":1789392593439,"stop":1789392597626}
