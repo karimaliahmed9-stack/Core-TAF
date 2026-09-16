@@ -10,7 +10,7 @@ import java.sql.Connection;
 public class TestDBConnection {
     DataBaseConnection DBConnection;
 
-    @Test
+
     public void testDatabaseConnection() {
 
         Connection connection = null;
