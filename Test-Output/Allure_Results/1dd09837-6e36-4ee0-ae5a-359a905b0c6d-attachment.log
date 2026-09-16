@@ -1,0 +1,17 @@
+[DEBUG] - [16-09-2026 11:20:20] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\MR\AppData\Local\JetBrains\IdeaIC2024.3\temp-testng-customsuite.xml"
+[INFO] - [16-09-2026 11:20:20] [main] [Core.ListenersManager.TestNGListeners] - Test Execution Started
+[INFO] - [16-09-2026 11:20:20] [main] [Core.FileUtilsManager.FileUtil] - Directory cleaned successfully: C:\Users\MR\Core-TAF\Test-Output\Report
+[INFO] - [16-09-2026 11:20:20] [main] [Core.FileUtilsManager.FileUtil] - Directory cleaned successfully: C:\Users\MR\Core-TAF\Test-Output\Full_Report
+[INFO] - [16-09-2026 11:20:20] [main] [Core.FileUtilsManager.FileUtil] - Directory cleaned successfully: C:\Users\MR\Core-TAF\Test-Output\ScreenShoots
+[INFO] - [16-09-2026 11:20:20] [main] [Core.FileUtilsManager.FileUtil] - Directory cleaned successfully: C:\Users\MR\Core-TAF\Test-Output\ScreenRecords
+[INFO] - [16-09-2026 11:20:20] [main] [Core.ListenersManager.TestNGListeners] - Cleaning directors: 
+[INFO] - [16-09-2026 11:20:20] [main] [Core.ListenersManager.TestNGListeners] - Creating directors: ...
+[INFO] - [16-09-2026 11:20:21] [main] [Core.ListenersManager.TestNGListeners] - Properties loaded
+[INFO] - [16-09-2026 11:20:21] [main] [Core.AllureReports.AllureEnviromentManager] - Allure environment variable set .
+[INFO] - [16-09-2026 11:20:22] [main] [Core.AllureReports.AllureBinaryManager] - allure binaries already exists.
+[INFO] - [16-09-2026 11:20:22] [main] [Core.ListenersManager.TestNGListeners] - Allure Environment Set
+[INFO] - [16-09-2026 11:20:22] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\MR\AppData\Local\JetBrains\IdeaIC2024.3\temp-testng-customsuite.xml
+
+[INFO] - [16-09-2026 11:20:22] [main] [Core.ListenersManager.TestNGListeners] - Starting Test Case : testDatabaseConnectionStarted
+[ERROR] - [16-09-2026 11:20:23] [main] [Core.AttachementsManager.ScreenShootsManager] - Failed to capture ScreenShots :Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
