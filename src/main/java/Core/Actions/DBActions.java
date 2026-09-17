@@ -96,6 +96,7 @@ public class DBActions {
         Object value = getSingleValue(query);
 
         if (value == null) {
+            LogManager.Warn("No value found for query: " + query + ". Returning 0 as default.");
             return 0;
         }
 
