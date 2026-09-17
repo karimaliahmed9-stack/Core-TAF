@@ -63,7 +63,8 @@ public class Alerts {
         return waitManager.getFluentWait().until(driver1 -> {
             try {
                 String text = driver.switchTo().alert().getText();
-                LogManager.Info("Getting text from alert" + text);
+                LogManager.Info("Getting text from alert: " + text);
+
                 return !text.isEmpty() ? text : null;
             } catch (Exception e) {
                 LogManager.Error("Getting text from alert is False" + e);

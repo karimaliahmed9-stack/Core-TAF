@@ -1,0 +1,42 @@
+[DEBUG] - [16-09-2026 12:03:02] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\MR\AppData\Local\JetBrains\IdeaIC2024.3\temp-testng-customsuite.xml"
+[INFO] - [16-09-2026 12:03:03] [main] [Core.ListenersManager.TestNGListeners] - Test Execution Started
+[INFO] - [16-09-2026 12:03:03] [main] [Core.FileUtilsManager.FileUtil] - Directory cleaned successfully: C:\Users\MR\Core-TAF\Test-Output\Report
+[INFO] - [16-09-2026 12:03:03] [main] [Core.FileUtilsManager.FileUtil] - Directory cleaned successfully: C:\Users\MR\Core-TAF\Test-Output\Full_Report
+[INFO] - [16-09-2026 12:03:03] [main] [Core.FileUtilsManager.FileUtil] - Directory cleaned successfully: C:\Users\MR\Core-TAF\Test-Output\ScreenShoots
+[INFO] - [16-09-2026 12:03:03] [main] [Core.FileUtilsManager.FileUtil] - Directory cleaned successfully: C:\Users\MR\Core-TAF\Test-Output\ScreenRecords
+[INFO] - [16-09-2026 12:03:03] [main] [Core.ListenersManager.TestNGListeners] - Cleaning directors: 
+[INFO] - [16-09-2026 12:03:03] [main] [Core.ListenersManager.TestNGListeners] - Creating directors: ...
+[INFO] - [16-09-2026 12:03:03] [main] [Core.ListenersManager.TestNGListeners] - Properties loaded
+[INFO] - [16-09-2026 12:03:03] [main] [Core.AllureReports.AllureEnviromentManager] - Allure environment variable set .
+[INFO] - [16-09-2026 12:03:05] [main] [Core.AllureReports.AllureBinaryManager] - allure binaries already exists.
+[INFO] - [16-09-2026 12:03:05] [main] [Core.ListenersManager.TestNGListeners] - Allure Environment Set
+[INFO] - [16-09-2026 12:03:05] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\MR\AppData\Local\JetBrains\IdeaIC2024.3\temp-testng-customsuite.xml
+
+[INFO] - [16-09-2026 12:03:06] [main] [Core.Actions.DBActions] - Executing DB Update:      CREATE TABLE Users (
+    ID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Age INT
+)
+
+[INFO] - [16-09-2026 12:03:06] [main] [Core.ListenersManager.TestNGListeners] - Starting Test Case : testInsertDataStarted
+[INFO] - [16-09-2026 12:03:06] [main] [Core.Actions.DBActions] - Executing DB Update: INSERT INTO Users (ID, Name, Age)
+VALUES (1, 'Karim', 25)
+
+[ERROR] - [16-09-2026 12:03:06] [main] [Core.AttachementsManager.ScreenShootsManager] - Failed to capture ScreenShots :Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[INFO] - [16-09-2026 12:03:06] [main] [Core.ListenersManager.TestNGListeners] - Test Case Passed: testInsertDataPassed
+[INFO] - [16-09-2026 12:03:06] [main] [Core.ListenersManager.TestNGListeners] - Starting Test Case : testGetIntValueStarted
+[INFO] - [16-09-2026 12:03:06] [main] [Core.Actions.DBActions] - Getting single value from DB: SELECT Age FROM Users WHERE ID = 1
+[ERROR] - [16-09-2026 12:03:06] [main] [Core.AttachementsManager.ScreenShootsManager] - Failed to capture ScreenShots :Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[INFO] - [16-09-2026 12:03:06] [main] [Core.ListenersManager.TestNGListeners] - Test Case Passed: testGetIntValuePassed
+[INFO] - [16-09-2026 12:03:06] [main] [Core.ListenersManager.TestNGListeners] - Starting Test Case : testGetStringValueStarted
+[INFO] - [16-09-2026 12:03:06] [main] [Core.Actions.DBActions] - Getting single value from DB: SELECT Name FROM Users WHERE ID = 1
+[ERROR] - [16-09-2026 12:03:06] [main] [Core.AttachementsManager.ScreenShootsManager] - Failed to capture ScreenShots :Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[INFO] - [16-09-2026 12:03:06] [main] [Core.ListenersManager.TestNGListeners] - Test Case Passed: testGetStringValuePassed
+[INFO] - [16-09-2026 12:03:06] [main] [Core.ListenersManager.TestNGListeners] - Starting Test Case : testRecordExistsStarted
+[INFO] - [16-09-2026 12:03:06] [main] [Core.Actions.DBActions] - Checking record existence: SELECT * FROM Users WHERE ID = 1
+[ERROR] - [16-09-2026 12:03:06] [main] [Core.AttachementsManager.ScreenShootsManager] - Failed to capture ScreenShots :Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[INFO] - [16-09-2026 12:03:06] [main] [Core.ListenersManager.TestNGListeners] - Test Case Passed: testRecordExistsPassed
+[INFO] - [16-09-2026 12:03:06] [main] [Core.ListenersManager.TestNGListeners] - Starting Test Case : testRowCountStarted
+[INFO] - [16-09-2026 12:03:06] [main] [Core.Actions.DBActions] - Getting row count: SELECT * FROM Users
+[ERROR] - [16-09-2026 12:03:06] [main] [Core.AttachementsManager.ScreenShootsManager] - Failed to capture ScreenShots :Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null

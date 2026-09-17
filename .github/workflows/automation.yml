@@ -1,0 +1,27 @@
+name: Core-TAF Automation
+
+on:
+  push:
+    branches:
+      - DB
+
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '23'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Run Tests
+        run: mvn clean test
