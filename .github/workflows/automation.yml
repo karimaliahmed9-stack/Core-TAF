@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - DB
+  pull_request:
+    branches:
+      - master
 
   workflow_dispatch:
 
@@ -25,3 +28,25 @@ jobs:
 
       - name: Run Tests
         run: mvn clean test
+
+      # Upload screenshots, videos, logs and Allure results
+      - name: Upload Automation Evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: automation-evidence
+          path: |
+            Test-Output/ScreenShoots/
+            Test-Output/ScreenRecords/
+            Test-Output/Logs/
+            Test-Output/Allure_Results/
+          if-no-files-found: warn
+
+      # Upload the generated Allure HTML report
+      - name: Upload Allure HTML Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: Test-Output/Full_Report/
+          if-no-files-found: warn
